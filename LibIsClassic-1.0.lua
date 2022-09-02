@@ -4,7 +4,7 @@
 
 assert(LibStub, "LibIsClassic-1.0 requires LibStub")
 
-local lib = LibStub:NewLibrary("LibIsClassic-1.0", 1)
+local lib = LibStub:NewLibrary("LibIsClassic-1.0", 2)
 
 if not lib then return end
 
@@ -12,6 +12,7 @@ local WOW_PROJECT_ID = _G.WOW_PROJECT_ID
 local WOW_PROJECT_MAINLINE = _G.WOW_PROJECT_MAINLINE
 local WOW_PROJECT_CLASSIC = _G.WOW_PROJECT_CLASSIC
 local WOW_PROJECT_BURNING_CRUSADE_CLASSIC = _G.WOW_PROJECT_BURNING_CRUSADE_CLASSIC
+local WOW_PROJECT_WRATH_CLASSIC = _G.WOW_PROJECT_WRATH_CLASSIC
 
 -- ---------------------------------------------------------------------
 -- Public API
@@ -31,12 +32,17 @@ function lib:IsBurningCrusadeClassic()
 	return WOW_PROJECT_ID == WOW_PROJECT_BURNING_CRUSADE_CLASSIC
 end
 
+function lib:IsWrathClassic()
+	-- Kevin E. Levin?
+	return WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC
+end
+
 -- ---------------------------------------------------------------------
 -- Embed Handling
 
 lib.embeds = lib.embeds or {}
 
-local mixins = { "IsRetail", "IsClassic", "IsBurningCrusadeClassic" }
+local mixins = { "IsRetail", "IsClassic", "IsBurningCrusadeClassic", "IsWrathClassic" }
 
 function lib:Embed(target)
 	for _, v in next, mixins do
