@@ -29,6 +29,8 @@ This library provides a few functions for your addon to use. These functions are
 * `MyAddon:IsRetail()` - returns `true` on modern retail servers and `false` on other servers
 * `MyAddon:IsClassic()` - returns `true` on Classic Era (1.13.x) servers and `false` on other servers
 * `MyAddon:IsBurningCrusadeClassic()` - returns `true` on Burning Crusade Classic (2.5.x) servers and `false` on other servers
+* `MyAddon:IsWrathClassic()` - returns `true` on Wrath Of The Lich King Classic (3.4.x) servers and `false` on other servers
+* `MyAddon:IsCataClassic()` - returns `true` on Cataclysm Classic (4.4.x) servers and `false` on other servers
 
 ## Example
 
@@ -38,7 +40,7 @@ if self:IsRetail() then
 end
 
 if not self:IsBurningCrusadeClassic() then
-    -- do stuff that only applies to 1.13.x and retail
+    -- do stuff that doesn't apply to Burning Crusade Classic
 end
 ```
 

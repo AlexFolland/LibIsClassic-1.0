@@ -13,6 +13,7 @@ local WOW_PROJECT_MAINLINE = _G.WOW_PROJECT_MAINLINE
 local WOW_PROJECT_CLASSIC = _G.WOW_PROJECT_CLASSIC
 local WOW_PROJECT_BURNING_CRUSADE_CLASSIC = _G.WOW_PROJECT_BURNING_CRUSADE_CLASSIC
 local WOW_PROJECT_WRATH_CLASSIC = _G.WOW_PROJECT_WRATH_CLASSIC
+local WOW_PROJECT_CATACLYSM_CLASSIC = _G.WOW_PROJECT_CATACLYSM_CLASSIC
 
 -- ---------------------------------------------------------------------
 -- Public API
@@ -37,12 +38,16 @@ function lib:IsWrathClassic()
 	return WOW_PROJECT_ID == WOW_PROJECT_WRATH_CLASSIC
 end
 
+function lib:IsCataClassic()
+	return WOW_PROJECT_ID == WOW_PROJECT_CATACLYSM_CLASSIC
+end
+
 -- ---------------------------------------------------------------------
 -- Embed Handling
 
 lib.embeds = lib.embeds or {}
 
-local mixins = { "IsRetail", "IsClassic", "IsBurningCrusadeClassic", "IsWrathClassic" }
+local mixins = { "IsRetail", "IsClassic", "IsBurningCrusadeClassic", "IsWrathClassic", "IsCataClassic" }
 
 function lib:Embed(target)
 	for _, v in next, mixins do
